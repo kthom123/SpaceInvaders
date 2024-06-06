@@ -23,10 +23,13 @@ def player():
 # Game Loop
 running = True
 while running:
+
+    screen.fill((0, 0, 0))
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
-    # RGB - Red, Green, Blue
-    screen.fill((255, 0, 0))
+
+    player()
     pygame.display.update()
