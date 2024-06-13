@@ -29,7 +29,7 @@ def player(x, y):
 
 
 def enemy(x, y):
-    screen.blit(playerImg, (x, y))
+    screen.blit(enemyImg, (x, y))
 
 
 # Game Loop
@@ -61,4 +61,5 @@ while running:
         playerX = 736
 
     player(playerX, playerY)
+    enemy(enemyX, enemyY)
     pygame.display.update()
