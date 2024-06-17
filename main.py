@@ -23,7 +23,7 @@ playerX_change = 0
 
 # Enemy
 enemyImg = pygame.image.load('alien.png')
-enemyX = random.randint(0, 800)
+enemyX = random.randint(0, 736)
 enemyY = random.randint(50, 150)
 enemyX_change = 0.3
 enemyY_change = 40
@@ -33,14 +33,17 @@ bulletImg = pygame.image.load('bullet.png')
 bulletX = 0
 bulletY = 480
 bulletX_change = 0
-bulletY_change = 10
+bulletY_change = 1
 bullet_state = "ready"
+
 
 def player(x, y):
     screen.blit(playerImg, (x, y))
 
+
 def enemy(x, y):
     screen.blit(enemyImg, (x, y))
+
 
 def fire_bullet(x, y):
     global bullet_state, bulletX, bulletY
@@ -58,23 +61,25 @@ while running:
     screen.fill((0, 0, 0))
     # Background Image
     screen.blit(background, (0, 0))
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
-    # Keystroke check
-    if event.type == pygame.KEYDOWN:
-        if event.key == pygame.K_LEFT:
-            playerX_change = -0.3
-        if event.key == pygame.K_RIGHT:
-            playerX_change = 0.3
-        if event.key == pygame.K_SPACE:
-            if bullet_state == "ready":
-                fire_bullet(playerX, playerY)
+        # Keystroke check
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                playerX_change = -0.3
+            if event.key == pygame.K_RIGHT:
+                playerX_change = 0.3
+            if event.key == pygame.K_SPACE:
+                if bullet_state == "ready":
+                    fire_bullet(playerX, playerY)
+                    print("Bullet fired!")
 
-    if event.type == pygame.KEYUP:
-        if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-            playerX_change = 0
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                playerX_change = 0
 
     # Check for boundaries of spaceship
     playerX += playerX_change
@@ -99,8 +104,8 @@ while running:
         screen.blit(bulletImg, (bulletX, bulletY))
         bulletY -= bulletY_change
         if bulletY <= 0:
-            bulletY = playerY
             bullet_state = "ready"
+        print(f"Bullet coordinates: ({bulletX}, {bulletY})")
 
     player(playerX, playerY)
     enemy(enemyX, enemyY)
