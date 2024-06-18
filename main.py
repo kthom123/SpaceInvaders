@@ -37,6 +37,7 @@ bulletX_change = 0
 bulletY_change = 1
 bullet_state = "ready"
 
+score = 0
 
 def player(x, y):
     screen.blit(playerImg, (x, y))
@@ -113,6 +114,12 @@ while running:
         if bulletY <= 0:
             bullet_state = "ready"
         print(f"Bullet coordinates: ({bulletX}, {bulletY})")
+
+    # Collision
+    collision = isCollision(enemyX, enemyY, bulletX, bulletY)
+    if collision:
+        bulletY = 480
+        bullet_state = "ready"
 
     player(playerX, playerY)
     enemy(enemyX, enemyY)
