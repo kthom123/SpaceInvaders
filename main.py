@@ -1,5 +1,6 @@
 import pygame
 import random
+import math
 
 # Initialize the pygame
 pygame.init()
@@ -52,6 +53,12 @@ def fire_bullet(x, y):
     bulletY = y + 10
     screen.blit(bulletImg, (bulletX, bulletY))
 
+def isCollision(enemyX, enemyY, bulletX, bulletY):
+    distance = math.sqrt((math.pow(enemyX-bulletX, 2)) + (math.pow(enemyY-bulletY, 2)))
+    if distance < 27:
+        return True
+    else:
+        return False
 
 # Game Loop
 running = True
