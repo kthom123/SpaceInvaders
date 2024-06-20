@@ -45,7 +45,8 @@ bulletX_change = 0
 bulletY_change = 1
 bullet_state = "ready"
 
-score = 0
+# Score
+score_value = 0
 
 def player(x, y):
     screen.blit(playerImg, (x, y))
@@ -120,8 +121,7 @@ while running:
         if collision:
             bulletY = 480
             bullet_state = "ready"
-            score += 1
-            print(score)
+            score_value += 1
             enemyX[i] = random.randint(0, 736)
             enemyY[i] = random.randint(50, 150)
 
