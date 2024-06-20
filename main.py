@@ -47,13 +47,13 @@ bullet_state = "ready"
 
 # Score
 score_value = 0
-font = pygame.font.Font('freesansbold.ttf', 32)
+font = pygame.font.Font('SPACE.ttf', 20)
 
 textX = 10
 textY = 10
 
 def show_score(x, y):
-    score = font.render("Score: " + str(score_value), True, (255, 255, 255))
+    score = font.render("Score: " + str(score_value), True, (224, 224, 224))
     screen.blit(score, (x, y))
 
 def player(x, y):
