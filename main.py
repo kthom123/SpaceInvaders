@@ -47,6 +47,10 @@ bullet_state = "ready"
 
 # Score
 score_value = 0
+font = pygame.font.Font('freesansbold.ttf', 32)
+
+textX = 10
+textY = 10
 
 def player(x, y):
     screen.blit(playerImg, (x, y))
