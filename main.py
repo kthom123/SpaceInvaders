@@ -68,6 +68,23 @@ def game_over_text():
     over_text = over_font.render("GAME OVER", True, (224, 224, 224))
     text_rect = over_text.get_rect(center=(800 / 2, 600 / 2))
     screen.blit(over_text, text_rect.topleft)
+    restart_text = font.render("Press R to Restart", True, (224, 224, 224))
+    restart_rect = restart_text.get_rect(center=(800 / 2, 600 / 2 + 50))
+    screen.blit(restart_text, restart_rect.topleft)
+
+def reset_game():
+    global playerX, playerY, playerX_change, bulletX, bulletY, bullet_state, score_value, game_over
+    playerX = 370
+    playerY = 480
+    playerX_change = 0
+    bulletX = 0
+    bulletY = 480
+    bullet_state = "ready"
+    score_value = 0
+    game_over = False
+    for i in range(num_of_enemies):
+        enemyX[i] = random.randint(0, 736)
+        enemyY[i] = random.randint(50, 150)
 
 def player(x, y):
     screen.blit(playerImg, (x, y))
@@ -113,6 +130,8 @@ while running:
                     bullet_Sound.play()
                     fire_bullet(playerX, playerY)
                     print("Bullet fired!")
+            if event.key == pygame.K_r and game_over:
+                reset_game()
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
