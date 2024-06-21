@@ -50,12 +50,15 @@ bulletX_change = 0
 bulletY_change = 1
 bullet_state = "ready"
 
-# Score
+# Score Text
 score_value = 0
 font = pygame.font.Font('SPACE.ttf', 20)
 
 textX = 10
 textY = 10
+
+# Game Over Text
+over_font = pygame.font.Font('SPACE.ttf', 64)
 
 def show_score(x, y):
     score = font.render("Score: " + str(score_value), True, (224, 224, 224))
@@ -123,6 +126,14 @@ while running:
 
     # Enemy movement
     for i in range(num_of_enemies):
+
+        # Game Over
+        if enemyY[i] > 200:
+            for j in range(num_of_enemies):
+                enemyY[j] = 2000
+            game_over_text
+            break
+
         enemyX[i] += enemyX_change[i]
         if enemyX[i] <= 0:
             enemyX_change[i] = 0.3
