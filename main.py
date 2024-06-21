@@ -1,6 +1,7 @@
 import pygame
 import random
 import math
+from pygame import mixer
 
 # Initialize the pygame
 pygame.init()
@@ -10,6 +11,10 @@ screen = pygame.display.set_mode((800, 600))
 
 # Background
 background = pygame.image.load('background.jpg')
+
+# Background Sound
+mixer.music.load('background.wav')
+mixer.music.play(-1)
 
 # Caption and icon
 pygame.display.set_caption("Space Invaders")
