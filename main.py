@@ -64,6 +64,10 @@ def show_score(x, y):
     score = font.render("Score: " + str(score_value), True, (224, 224, 224))
     screen.blit(score, (x, y))
 
+def game_over_text():
+    over_text = over_font.render("GAME OVER", True, (224, 224, 224))
+    screen.blit(over_text, (200, 250))
+
 def player(x, y):
     screen.blit(playerImg, (x, y))
 
@@ -128,7 +132,7 @@ while running:
     for i in range(num_of_enemies):
 
         # Game Over
-        if enemyY[i] > 200:
+        if enemyY[i] > 440:
             for j in range(num_of_enemies):
                 enemyY[j] = 2000
             game_over_text
