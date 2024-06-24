@@ -1,6 +1,7 @@
 # Space Invaders
 
 Welcome to Space Invaders! This is a classic arcade game where your goal is to defend Earth from waves of invading aliens.
+(Created using Python, Pycharm and Pygame)
 
 ![SpaceInvaders1](https://github.com/kthom123/SpaceInvaders/assets/99015262/0add3f7c-edac-45c8-9acd-cc81b313e021)
 
